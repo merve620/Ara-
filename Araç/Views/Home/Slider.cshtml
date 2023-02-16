@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Araç.Models.Ilan>
+@{ int i = 0;}
+@foreach (var item in Model)
+        {
+            i++;
+            var c = 1;
+            var active = i == 1 ? "active" : "";
+    <div class="carousel-item @active">
+        @foreach (var rsm in ViewBag.Imgs)
+                    {
+                        if (rsm.IlanId==item.IlanId)
+                        {
+                            if (@c==1)
+                            {
+                                c++;
+                    <a href="/Home/Detay/@item.IlanId"><img src="/Content/image/@rsm.ResimAd" class="d-block w-100" alt="..." height="400"></a>
+
+                }
+
+        }
+
+        }
+        
+    </div>
+}
